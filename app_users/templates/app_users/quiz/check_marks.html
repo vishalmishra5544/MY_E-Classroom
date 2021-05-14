@@ -1,0 +1,73 @@
+{% extends 'base.html'  %}
+{% load static %}
+{%block title %}See Marks{% endblock%}
+
+{% block image_block %}
+<head>
+  <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+  <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+</head>
+<header class="info-header">
+  <div id="page-intro" style="background: linear-gradient(to right ,blue,lightblue,purple),url("../static/css/Images/attendance.jpg");" class="container-fluid d-flex align-items-center justify-content-center ">
+    <div class="row d-flex justify-content-center text-center">
+      <div class="col-md-10 text-white">
+        <!-- heading -->
+        <h2 class="display-4 font-weight-bold  p-5 " style="color:#ff5722;" >See Marks</h2>
+        <div class="row d-flex justify-content-center text-center">
+          <ul class="breadcrumb">
+            <li><a href="{% url 'index' %}">Home</a></li>
+              <li><a href="{% url 'dashboard' %}">Dashboard</a></li>
+             <li><a href="{% url 'assignments' %}">Assignments</a></li>
+              {% if user.is_superuser == False %}
+               <li><a href="{% url 'student_dashboard' %}">Student Exam Section</a></li>
+              {% endif %}
+            <li><a href="{% url 'view_result' %}">Results Section</a></li>
+            <li class="disabled-text" >See Marks</li>
+          </ul>
+        </div>
+
+        <!-- divider -->
+        <hr style="color:#ff5722;">
+  </div>
+</header>
+{% endblock %}
+
+
+{% block content %}
+
+<section class="text-center mt-4">
+        <h4 class="text-center alert alert-info">See Marks</h4>
+              <!-- class row for description-->
+              <div class="row d-flex justify-content-center mb-4">
+                <!-- class column -->
+                <div class="col-md-8">
+                  <div class="container">
+                          <div class="panel panel-primary">
+                            <div class="panel-heading">
+                            </div>
+                            <table class="table table-hover" id="dev-table">
+                              <thead>
+                                <tr>
+                                  <th class="text-center alert alert-info">Exam Name</th>
+                                  <th class="text-center alert alert-info">Total Marks</th>
+                                  <th class="text-center alert alert-info">Attempt</th>
+                                  <th class="text-center alert alert-info">Exam Date</th>
+                                </tr>
+                              </thead>
+                              {% for t in results %}
+                              <tr>
+                                <td> {{t.exam}}</td>
+                                <td> {{t.marks}}</td>
+                                <td>Attempt {{ forloop.counter }}</td>
+                                <td> {{t.date}}</td>
+                              </tr>
+                              {% endfor %}
+                            </table>
+                          </div>
+                        </div>
+                  </div>
+              </div>
+</section>
+
+{% endblock %}

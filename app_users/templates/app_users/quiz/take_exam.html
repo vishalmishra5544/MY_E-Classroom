@@ -1,0 +1,89 @@
+
+{% extends 'base.html'  %}
+{% load static %}
+{%block title %}Take Exam{% endblock%}
+
+{% block image_block %}
+
+<head>
+  <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+  <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+
+</head>
+<header class="info-header">
+  <div id="page-intro" style="background: linear-gradient(to right ,yellow,lightblue,red),url("../static/css/Images/attendance.jpg");" class="container-fluid d-flex align-items-center justify-content-center ">
+    <div class="row d-flex justify-content-center text-center">
+      <div class="col-md-10 text-white">
+        <!-- heading -->
+        <h2 class="display-4 font-weight-bold  p-5 " style="color:#ff5722;" >Take Exam</h2>
+        <div class="row d-flex justify-content-center text-center">
+          <ul class="breadcrumb">
+            <li><a href="{% url 'index' %}">Home</a></li>
+              <li><a href="{% url 'dashboard' %}">Dashboard</a></li>
+              <li><a href="{% url 'assignments' %}">Assignments</a></li>
+            <li><a href="{% url 'student_dashboard' %}">Student Exam Section</a></li>
+              <li><a href="{% url 'student_exam' %}">Exams Available</a></li>
+            <li class="disabled-text" >Take Exam</li>
+          </ul>
+        </div>
+
+        <!-- divider -->
+        <hr style="color:#ff5722;">
+  </div>
+</header>
+{% endblock %}
+
+
+{% block content %}
+
+<section class="text-center mt-4">
+                           <h4 class="text-center alert alert-info">Take Exam</h4>
+              <!-- class row for description-->
+              <div class="row d-flex justify-content-center mb-4">
+                <!-- class column -->
+                <div class="col-md-8">
+                    <div class="container my-4">
+                            <div class="jumbotron">
+                                  <h3 class="text-info text-center">Before you start the Exam, here are the rules</h3>
+
+                                <div class="row">
+
+                                    <div class="card border-info mx-4 my-4">
+                                        <div class="card-body text-info">
+
+                                            <h4 class="card-title" style="font-size:25px;">Exam Details :</h4>
+                                            <p class="card-text">
+                                                </p><ul style="list-style:decimal;">
+                                                    <li>Exam Name : {{course.name}}</li>
+                                                    <li>Total Question : {{total_questions}}</li>
+                                                    <li>Total Marks : {{total_marks}}</li>
+                                                </ul>
+                                            <h4 class="card-title" style="font-size:25px;">Rules :</h4>
+                                            <p class="card-text">
+                                                </p><ul style="list-style:decimal;">
+                                                    <li>All questions are multiple choice question.</li>
+                                                    <li><span class="text-danger">Only one choice is correct.</span></li>
+                                                    <li>Every question carry different marks
+                                                    </li>
+
+                                                    <li>Try to answer as quickly as you can.</li>
+                                                    <li>If you press refresh or go back to the previous page, there will be a new question for you and the question you were on will be counted as attempted.</li>
+                                                    <li>Questions are displayed randomly for every user.</li>
+                                                    <li>You will be told your marks immediately when you submit the answer.</li>
+                                                </ul>
+                                            <p></p>
+                                            <a href="{% url 'start_exam' course.id  %}" class="btn btn-info">Let's Start</a>
+                                        </div>
+                                        <div class="card-footer">Best Of Luck</div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                </div>
+              </div>
+</section>
+
+{% endblock %}

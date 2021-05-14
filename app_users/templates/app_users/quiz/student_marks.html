@@ -1,0 +1,86 @@
+{% extends 'base.html'  %}
+{% load static %}
+{%block title %}View Marks{% endblock%}
+
+{% block image_block %}
+<head>
+  <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+  <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+  <style media="screen">
+    a:link {
+      text-decoration: none;
+    }
+
+    h6 {
+      text-align: center;
+    }
+
+    .row {
+      margin: 100px;
+    }
+  </style>
+</head>
+<header class="info-header">
+  <div id="page-intro" class="container-fluid d-flex align-items-center justify-content-center ">
+    <div class="row d-flex justify-content-center text-center">
+      <div class="col-md-10 text-white">
+        <!-- heading -->
+        <h2 class="display-4 font-weight-bold  p-5 " style="color:#ff5722;" > Assignments </h2>
+        <div class="row d-flex justify-content-center text-center">
+          <ul class="breadcrumb">
+            <li><a href="{% url 'index' %}">Home</a></li>
+              <li><a href="{% url 'dashboard' %}">Dashboard</a></li>
+            <li class="disabled-text" >Assignments</li>
+          </ul>
+        </div>
+
+        <!-- divider -->
+        <hr style="color:#ff5722;">
+
+        <!-- description -->
+
+  </div>
+</header>
+{% endblock %}
+
+
+{% block content %}
+
+<section class="text-center mt-4">
+              <h2 class="mb-5 font-weight-bold" style="color:#ff5722;">View Marks</h2>
+              <!-- class row for description-->
+              <div class="row d-flex justify-content-center mb-4">
+                <!-- class column -->
+                <div class="col-md-8">
+                    <div class="container">
+                      <div class="panel panel-primary">
+                        <div class="panel-heading">
+                          <h6 class="panel-title">View Marks</h6>
+                        </div>
+                        <table class="table table-hover" id="dev-table">
+                          <thead>
+                            <tr>
+
+                              <th>Exam Name</th>
+
+                              <th>View Marks</th>
+                            </tr>
+                          </thead>
+                          {% for t in courses %}
+                          <tr>
+
+                            <td> {{t.name}}</td>
+
+                            <td><a class="btn btn-danger btn-xs" href="{% url 'check_marks' t.id  %}"><span class="glyphicon glyphicon-eye-open">Check Marks</span></a></td>
+                          </tr>
+                          {% endfor %}
+                        </table>
+                      </div>
+                    </div>
+                </div>
+              </div>
+</section>
+
+{% endblock %}

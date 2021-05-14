@@ -1,0 +1,170 @@
+{% extends 'base.html'  %}
+{% load static %}
+{%block title %}Attendance{% endblock%}
+
+{% block image_block %}
+<head>
+      <style type="text/css">
+          #page-intro {
+    background: linear-gradient(rgba(0, 0, 0, 2), rgba(0, 0, 0, 2)), url("Images/attendance.jpg")no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+       }
+      a:link {
+        text-decoration: none;
+      }
+
+      .order-card {
+        color: rgb(255, 255, 255);
+      }
+
+      .bg-c-blue {
+        background: #00ffff;
+      }
+
+      .bg-c-green {
+        background:#00ff00;
+      }
+
+      .bg-c-yellow {
+        background: #F56565;
+      }
+
+      .bg-c-red {
+        background: #ffcccb;
+      }
+
+
+      .card {
+
+        -webkit-box-shadow: 0 1px 2.94px 0.06px rgba(4, 26, 55, 0.16);
+        box-shadow: 0 1px 2.94px 0.06px rgba(4, 26, 55, 0.16);
+        border: 1px solid black;
+        margin-bottom: 30px;
+        -webkit-transition: all 0.3s ease-in-out;
+        transition: all 0.3s ease-in-out;
+      }
+
+      .card .card-block {
+        padding: 25px;
+      }
+
+      .order-card i {
+        font-size: 26px;
+      }
+
+      .f-left {
+        float: left;
+      }
+
+      .f-right {
+        float: right;
+      }
+      header {
+      left: 0px;
+      right: 0px;
+    }
+    </style>
+</head>
+<header class="info-header">
+  <div id="page-intro" style="background: linear-gradient(to right ,red,yellow,orange),url("../static/css/Images/attendance.jpg");" class="container-fluid d-flex align-items-center justify-content-center ">
+    <div class="row d-flex justify-content-center text-center">
+      <div class="col-md-10 text-white">
+        <!-- heading -->
+        <h2 class="display-4 font-weight-bold  p-5 " style="color:#ff5722;" > Attendance </h2>
+        <div class="row d-flex justify-content-center text-center">
+          <ul class="breadcrumb">
+            <li><a href="{% url 'index' %}">Home</a></li>
+              <li><a href="{% url 'dashboard' %}">Dashboard</a></li>
+            <li class="disabled-text" >Attendance</li>
+          </ul>
+        </div>
+
+        <!-- divider -->
+        <hr style="color:#ff5722;">
+
+        <!-- description -->
+        <h4 class="white-text my-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                  Deleniti
+                  consequuntur.</h4>
+  </div>
+</header>
+{% endblock %}
+
+
+{% block content %}
+
+<section class="text-center mt-4">
+              <h2 class="mb-5 font-weight-bold" style="color:#ff5722;">Dashboard</h2>
+              <!-- class row for description-->
+              <div class="row d-flex justify-content-center mb-4">
+                <!-- class column -->
+                <div class="col-md-8">
+
+                  <p class="grey-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi voluptate
+                                    hic
+                                    provident nulla repellat
+                                    facere esse molestiae ipsa labore porro minima quam quaerat rem, natus repudiandae debitis
+                                    est
+                                    sit pariatur.</p>
+                </div>
+              </div>
+              <div class="row d-flex justify-content-center mb-4">
+
+              </div>
+</section>
+
+<section class="content">
+        <div class="container-fluid">
+
+            <div class="row">
+                <div class="col-md-12">
+                    <!-- general form elements -->
+                    <div class="card card-primary">
+                    <div class="card-header">
+                        <h3 class="card-title">Attendance Data for {{ subject_obj.subject_name }}</h3>
+                    </div>
+                    <!-- /.card-header -->
+
+                    <div class="card-body">
+                        <div class="row">
+
+                            {% for attendance_report in attendance_reports %}
+                                {% if attendance_report.status == True %}
+
+                                        <div class="col-lg-3 attendance_div_green">
+                                            <b>Date : {{ attendance_report.attendance_id.attendance_date }}</b> <br/>
+
+                                                <b>[ Status : Present ]</b>
+
+                                        </div>
+
+
+                                {% else %}
+
+                                        <div class="col-lg-3 attendance_div_red">
+                                            <b>Date : {{ attendance_report.attendance_id.attendance_date }}</b> <br/>
+
+                                                <b>[ Status : Absent ]</b>
+
+                                        </div>
+
+                                {% endif %}
+                            {% endfor %}
+                        </div>
+
+                    </div>
+
+                    </div>
+
+                    </form>
+                    <!-- /.card -->
+
+                </div>
+            </div>
+
+        </div><!-- /.container-fluid -->
+      </section>
+{% endblock %}

@@ -1,0 +1,76 @@
+{% extends 'base.html'  %}
+{% load static %}
+{% load widget_tweaks %}
+{%block title %}Add Exam{% endblock%}
+
+{% block image_block %}
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <style>
+       <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  a:link {
+        text-decoration: none;
+      }
+
+  </style>
+</head>
+
+<header class="info-header">
+  <div id="page-intro" style="background: linear-gradient(to right ,blue,lightblue,purple),url("../static/css/Images/attendance.jpg");" class="container-fluid d-flex align-items-center justify-content-center ">
+    <div class="row d-flex justify-content-center text-center">
+      <div class="col-md-10 text-white">
+        <!-- heading -->
+        <h2 class="display-4 font-weight-bold  p-5 " style="color:#ff5722;" > Add Exam </h2>
+        <div class="row d-flex justify-content-center text-center">
+          <ul class="breadcrumb">
+            <li><a href="{% url 'index' %}">Home</a></li>
+              <li><a href="{% url 'dashboard' %}">Dashboard</a></li>
+              <li><a href="{% url 'assignments' %}">Assignments</a></li>
+               <li><a href="{% url 'teacher_exam' %}">Exams Section</a></li>
+            <li class="disabled-text" >Add Exam</li>
+          </ul>
+        </div>
+
+        <!-- divider -->
+        <hr style="color:#ff5722;">
+  </div>
+</header>
+{% endblock %}
+
+
+{% block content %}
+
+<section class="text-center mt-4">
+              <!-- class row for description-->
+              <div class="row d-flex justify-content-center mb-4">
+                <!-- class column -->
+                <div class="col-md-8">
+                    <h4 class="text-center alert alert-info">Add Exam</h4>
+                 <h2 style="text-align:center; color:blue;">Add Exam in the course</h2>
+                    <form method="POST" autocomplete="off" style="margin:100px;margin-top: 0px;">
+                        {%csrf_token%}
+                        <div class="form-group">
+                          <label for="name">Exam Name</label>
+                          {% render_field courseForm.name class="form-control" placeholder="Java" %}
+
+                          <label for="question_number">Total Question</label>
+                          {% render_field courseForm.question_number class="form-control" placeholder="10" %}
+
+                          <label for="total_marks">Total Marks</label>
+                          {% render_field courseForm.total_marks class="form-control" placeholder="50" %}
+                        </div>
+                        <button type="submit" class="btn btn-primary">ADD</button>
+                      </form>
+                    <br><br><br>
+                </div>
+              </div>
+</section>
+
+{% endblock %}

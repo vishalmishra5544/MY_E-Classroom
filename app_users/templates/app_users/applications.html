@@ -1,0 +1,101 @@
+{% extends 'base.html'  %}
+{% load static %}
+{%block title %}Applications and Requests{% endblock%}
+{% block image_block %}
+<header class="info-header">
+  <div id="page-intro" style="background: linear-gradient(to right ,white,lightblue,red),url("../static/css/Images/attendance.jpg");" class="container-fluid d-flex align-items-center justify-content-center ">
+    <div class="row d-flex justify-content-center text-center">
+      <div class="col-md-10 text-white">
+        <!-- heading -->
+        <h2 class="display-4 font-weight-bold  p-5 " style="color:#ff5722;" > Applications and Requests </h2>
+        <div class="row d-flex justify-content-center text-center">
+          <ul class="breadcrumb">
+            <li><a href="{% url 'index' %}">Home</a></li>
+              <li><a href="{% url 'dashboard' %}">Dashboard</a></li>
+            <li class="disabled-text" >Applications and Requests</li>
+          </ul>
+        </div>
+
+        <!-- divider -->
+        <hr style="color:#ff5722;">
+
+  </div>
+</header>
+{% endblock %}
+
+
+{% block content %}
+
+<section class="text-center mt-4">
+              <h2 class="mb-5 font-weight-bold" style="color:#ff5722;">Applications and Requests</h2>
+              <!-- class row for description-->
+              <div class="row d-flex justify-content-center mb-4">
+                <!-- class column -->
+                <div class="col-md-8">
+                    <div class="row">
+                        <div class="col-sm-4">
+                             <h4 class="text-center alert alert-info">New Applications</h4>
+                            <form method="post" action="">
+                              {% csrf_token %}
+                              {{form.as_p}}
+                               <input class="form-control" type="submit" value="Add">
+
+                            </form>
+                        </div>
+                        <div class="col-sm-7 offset-1">
+                           <h4 class="text-center alert alert-info">Show Previous Applications</h4>
+                            {% if stu %}
+                              <table class="table table-striped">
+                                    <thead>
+                                        <tr>
+                                          <th scope="col">Roll no</th>
+                                          <th scope="col">Student Name</th>
+                                          <th scope="col">Standard</th>
+                                            <th scope="col">Date</th>
+                                             <th scope="col">Application Type</th>
+                                            <th scope="col">Application Details</th>
+                                            <th scope="col">Status</th>
+                                        </tr>
+                                      </thead>
+                                      <tbody>
+                                      {% for st in stu %}
+                                        <tr>
+                                          <th scope="row">{{st.roll_no}}</th>
+                                          <td>{{st.studentname}}</td>
+                                           <td>{{st.standard}}</td>
+                                             <td>{{st.date}}</td>
+                                             <td>{{st.applicationtype}}</td>
+                                            <td>{{st.applicationdetail}}</td>
+                                             <td>{{st.applicationstatus}}</td>
+                                             <td>
+                                                 {% if user.is_superuser %}
+                                                 <a href="{% url 'updateapplication' st.id %}" class="btn btn-warning btn-sm">Edit</a>
+                                                 <form action="{% url 'deleteapplication' st.id %}" method="post" class="d-inline">
+                                                     {% csrf_token %}
+                                                     <input type="submit" class="btn btn-danger" value="Delete">
+                                                 </form>
+                                                 {% else %}
+                                                 <form action="{% url 'deleteapplication' st.id %}" method="post" class="d-inline">
+                                                     {% csrf_token %}
+                                                     <input type="submit" class="btn btn-danger" value="Delete">
+                                                 </form>
+                                                 {% endif %}
+                                             </td>
+                                        </tr>
+                                      {% endfor %}
+                                      </tbody>
+                              </table>
+
+                            {% else %}
+                            <h4 class="text-center alert alert-warning">No Records Found</h4>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+              </div>
+              <div class="row d-flex justify-content-center mb-4">
+
+              </div>
+</section>
+
+{% endblock %}

@@ -1,0 +1,146 @@
+{% extends 'base.html'  %}
+{% load static %}
+{%block title %}Assignments{% endblock%}
+{% block image_block %}
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <link href="http://netdna.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+    <style type="text/css">
+          #page-intro {
+    background: linear-gradient(rgba(0, 0, 0, 2), rgba(0, 0, 0, 2)), url("Images/attendance.jpg")no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+       }
+      a:link {
+        text-decoration: none;
+      }
+
+      .order-card {
+        color: rgb(255, 255, 255);
+      }
+
+      .bg-c-blue {
+        background: #00ffff;
+      }
+
+      .bg-c-green {
+        background:#00ff00;
+      }
+
+      .bg-c-yellow {
+        background: #F56565;
+      }
+
+      .bg-c-red {
+        background: #ffcccb;
+      }
+
+
+      .card {
+
+        -webkit-box-shadow: 0 1px 2.94px 0.06px rgba(4, 26, 55, 0.16);
+        box-shadow: 0 1px 2.94px 0.06px rgba(4, 26, 55, 0.16);
+        border: 1px solid black;
+        margin-bottom: 30px;
+        -webkit-transition: all 0.3s ease-in-out;
+        transition: all 0.3s ease-in-out;
+      }
+
+      .card .card-block {
+        padding: 25px;
+      }
+
+      .order-card i {
+        font-size: 26px;
+      }
+
+      .f-left {
+        float: left;
+      }
+
+      .f-right {
+        float: right;
+      }
+      header {
+      left: 0px;
+      right: 0px;
+    }
+    </style>
+  </head>
+<header class="info-header">
+  <div id="page-intro" style="background: linear-gradient(to right ,green,lightblue,red),url("../static/css/Images/attendance.jpg");" class="container-fluid d-flex align-items-center justify-content-center ">
+    <div class="row d-flex justify-content-center text-center">
+      <div class="col-md-10 text-white">
+        <!-- heading -->
+        <h2 class="display-4 font-weight-bold  p-5 " style="color:#ff5722;" > Assignments </h2>
+        <div class="row d-flex justify-content-center text-center">
+          <ul class="breadcrumb">
+            <li><a href="{% url 'index' %}">Home</a></li>
+              <li><a href="{% url 'dashboard' %}">Dashboard</a></li>
+            <li class="disabled-text" >Assignments</li>
+          </ul>
+        </div>
+
+        <!-- divider -->
+        <hr style="color:#ff5722;">
+  </div>
+</header>
+{% endblock %}
+
+
+{% block content %}
+
+<section class="text-center mt-4">
+              <h2 class="mb-5 font-weight-bold" style="color:#ff5722;">Assignments</h2>
+              <!-- class row for description-->
+              <div class="row d-flex justify-content-center mb-4">
+                <!-- class column -->
+                <div class="col-md-8">
+                    {% if user.is_superuser %}
+                     <div class="col-md-4 col-xl-6">
+                            <div class="card bg-c-red order-card">
+                              <div class="card-block">
+                                <h6 class="m-b-20" style="font-size:25px;"><a href="{% url 'teacher_exam'  %}">Exams Section</h6>
+                              </div>
+                            </div>
+                          </div>
+                       <div class="col-md-4 col-xl-6">
+                            <div class="card bg-c-green order-card">
+                              <div class="card-block">
+                                <h6 class="m-b-20" style="font-size:25px;"><a href="{% url 'teacher_question'  %}">Questions Section</h6>
+                              </div>
+                            </div>
+                          </div>
+                       <div class="col-md-4 col-xl-6">
+                            <div class="card bg-c-blue order-card">
+                              <div class="card-block">
+                                <h6 class="m-b-20" style="font-size:25px;"><a href="{% url 'view_result'  %}">Results Section</h6>
+                              </div>
+                            </div>
+                          </div>
+                    {% else %}
+                     <div class="col-md-4 col-xl-6">
+                            <div class="card bg-c-green order-card">
+                              <div class="card-block">
+                                <h6 class="m-b-20" style="font-size:25px;"><a href="{% url 'student_dashboard'  %}">Student Exam Section</h6>
+                              </div>
+                            </div>
+                          </div>
+                    {% endif %}
+                </div>
+              </div>
+              <div class="row d-flex justify-content-center mb-4">
+
+              </div>
+</section>
+
+{% endblock %}

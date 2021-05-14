@@ -1,0 +1,115 @@
+{% extends 'base.html'  %}
+{% load static %}
+{%block title %}Start Exam{% endblock%}
+{% block image_block %}
+<head>
+  <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+  <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+
+</head>
+<header class="info-header">
+  <div id="page-intro" style="background: linear-gradient(to right ,purple,lightblue,green),url("../static/css/Images/attendance.jpg");" class="container-fluid d-flex align-items-center justify-content-center ">
+    <div class="row d-flex justify-content-center text-center">
+      <div class="col-md-10 text-white">
+        <!-- heading -->
+        <h2 class="display-4 font-weight-bold  p-5 " style="color:#ff5722;" > Start Exam </h2>
+        <div class="row d-flex justify-content-center text-center">
+          <ul class="breadcrumb">
+            <li><a href="{% url 'index' %}">Home</a></li>
+              <li><a href="{% url 'dashboard' %}">Dashboard</a></li>
+                          <li><a href="{% url 'assignments' %}">Assignments</a></li>
+            <li><a href="{% url 'student_dashboard' %}">Student Exam Section</a></li>
+              <li><a href="{% url 'student_exam' %}">Exams Available</a></li>
+            <li><a href="{% url 'take_exam' course.id %}">Take Exam</a></li>
+            <li class="disabled-text" >Start Exam</li>
+          </ul>
+        </div>
+
+        <!-- divider -->
+        <hr style="color:#ff5722;">
+  </div>
+</header>
+{% endblock %}
+
+
+{% block content %}
+
+<section class="text-center mt-4">
+      <h4 class="text-center alert alert-info">Student Exam Section</h4>
+              <!-- class row for description-->
+              <div class="row d-flex justify-content-center mb-4">
+                <!-- class column -->
+                <div class="col-md-8">
+                    <div class="jumbotron my-4">
+
+                  <form class="form" autocomplete="off" onsubmit="return saveAns()"  action="{% url 'calculate_marks' %}" method="POST">
+                    {% csrf_token %}
+                    <h1 style="text-align: center;">{{course.name}}</h1>
+                    {% for q in questions%}
+                    <h3 class="text-info">{{ forloop.counter }}. {{q.question}}</h3><h4 style="text-align: right;">[Marks {{q.marks}}]</h4>
+
+                        <input type="hidden" name="csrfmiddlewaretoken" value="C24rUotmdHawVQJL3KrqiWxvti8UffOFYUc8TRbZtLt36AVLdP3jbkzUVe3beRAa">
+                          <div class="form-check mx-4">
+                            <input  type="radio" name="{{ forloop.counter }}" id="{{q.option1}}" value="Option1" >
+                            <label class="form-check-label" for="option1" >
+                             {{q.option1}}
+                            </label>
+                          </div>
+
+
+                          <div class="form-check mx-4">
+                            <input  type="radio" name="{{ forloop.counter }}" id="{{q.option2}}" value="Option2">
+                            <label class="form-check-label" for="option2">
+                              {{q.option2}}
+                            </label>
+                          </div>
+
+
+                          <div class="form-check mx-4">
+                            <input  type="radio" name="{{ forloop.counter }}" id="{{q.option3}}" value="Option3">
+                            <label class="form-check-label" for="option3">
+                              {{q.option3}}
+                            </label>
+                          </div>
+
+
+                          <div class="form-check mx-4">
+                            <input  type="radio" name="{{ forloop.counter }}" id="{{q.option4}}" value="Option4">
+                            <label class="form-check-label" for="option4">
+                              {{q.option4}}
+                            </label>
+                          </div>
+
+                        {% endfor %}
+                        <input class="btn btn-info btn-lg"   type="submit" value="Submit">
+                    </form>
+                  </div>
+              </div>
+</section>
+<script>
+    function saveAns(){
+
+        var ele = document.getElementsByTagName('input');
+        for(i = 0; i < ele.length; i++) {
+            if(ele[i].type="radio") {
+                if(ele[i].checked){
+                  setCookie(ele[i].name,ele[i].value,3)
+                }
+            }
+        }
+
+    }
+
+    function setCookie(cname, cvalue, exdays) {
+  var d = new Date();
+  d.setTime(d.getTime() + (exdays*24*60*60*1000));
+  var expires = "expires="+ d.toUTCString();
+  document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+}
+
+</script>
+
+
+{% endblock %}

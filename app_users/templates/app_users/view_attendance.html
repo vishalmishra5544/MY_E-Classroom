@@ -1,0 +1,87 @@
+{% extends 'base.html'  %}
+{% load static %}
+{%block title %}View Attendance{% endblock%}
+
+{% block image_block %}
+<header class="info-header">
+  <div id="page-intro" style="background: linear-gradient(to right ,yellow,blue,darkblue),url("../static/css/Images/attendance.jpg");" class="container-fluid d-flex align-items-center justify-content-center ">
+    <div class="row d-flex justify-content-center text-center">
+      <div class="col-md-10 text-white">
+        <!-- heading -->
+        <h2 class="display-4 font-weight-bold  p-5 " style="color:#ff5722;" >View Attendance </h2>
+        <div class="row d-flex justify-content-center text-center">
+          <ul class="breadcrumb">
+            <li><a href="{% url 'index' %}">Home</a></li>
+              <li><a href="{% url 'dashboard' %}">Dashboard</a></li>
+              <li><a href="{% url 'attendance' %}">Attendance</a></li>
+            <li class="disabled-text" >View Attendance</li>
+          </ul>
+        </div>
+
+        <!-- divider -->
+        <hr style="color:#ff5722;">
+
+        <!-- description -->
+
+  </div>
+</header>
+{% endblock %}
+
+
+{% block content %}
+
+<section class="text-center mt-4">
+              <h2 class="mb-5 font-weight-bold" style="color:#ff5722;">View Attendance</h2>
+              <!-- class row for description-->
+              <div class="row d-flex justify-content-center mb-4">
+                <!-- class column -->
+                <div class="col-md-8">
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <h4 class="text-center alert alert-info">View Attendance</h4>
+                            <form method="POST" action="">
+                              {% csrf_token %}
+                              {{form.as_p}}
+                               Enter Name: <input class="form-control" name="searched" type="search" >
+                              <button class="btn btn-outline-secondary" type="submit">Search</button>
+                            </form>
+                        </div>
+                        <div class="col-sm-7 offset-1">
+                           <h4 class="text-center alert alert-info">Show Attendance</h4>
+                            {% if searched %}
+                              <table class="table table-striped">
+                                    <thead>
+                                        <tr>
+                                          <th scope="col">Roll no</th>
+                                          <th scope="col">Student Name</th>
+                                          <th scope="col">Standard</th>
+                                          <th scope="col">Subject</th>
+                                            <th scope="col">Date</th>
+                                            <th scope="col">Time</th>
+                                            <th scope="col">Status</th>
+                                        </tr>
+                                      </thead>
+                                      <tbody>
+                                      {% for st in posts %}
+                                        <tr>
+                                          <th scope="row">{{st.roll_no}}</th>
+                                          <td>{{st.studentname}}</td>
+                                          <td>{{st.standard}}</td>
+                                          <td>{{st.subject}}</td>
+                                             <td>{{st.date}}</td>
+                                             <td>{{st.time}}</td>
+                                             <td>{{st.status}}</td>
+                                        </tr>
+                                      </tbody>
+                                 </table>
+                              {% endfor %}
+                            {% else %}
+                            <h4 class="text-center alert alert-warning">No Records Found</h4>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+              </div>
+</section>
+
+{% endblock %}

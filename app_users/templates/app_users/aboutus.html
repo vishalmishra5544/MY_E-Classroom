@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block title %} About Us {% endblock %}
+
+{% block image_block %}
+<head>
+    <style>
+        #page-intro {
+    background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)), url("../static/css/Images/aboutus.jfif")no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+    </style>
+</head>
+<header class="info-header">
+  <div id="page-intro" class="container-fluid d-flex align-items-center justify-content-center ">
+    <div class="row d-flex justify-content-center text-center">
+                <h2 class="display-4 font-weight-bold  p-5 " style="color:#ff5722;" > About Us </h2>
+      <div class="col-md-10 text-white">
+        <!-- heading -->
+        <div class="row d-flex justify-content-center text-center">
+          <ul class="breadcrumb">
+            <li><a href="{% url 'index' %}">Home</a></li>
+            <li class="disabled-text" >About Us</li>
+          </ul>
+        </div>
+
+        <!-- divider -->
+        <hr style="color:#ff5722;">
+
+        <!-- description -->
+  </div>
+</header>
+{% endblock %}
+
+{% block content %}
+<section class="text-center mt-5">
+    <br>
+    <br>
+         <h2 class="text-center alert alert-info">About "My E-Classroom"</h2>
+              <!-- class row for description-->
+              <div class="row d-flex justify-content-center mb-4">
+               <p style="font-size:25px;"> "My E-Classroom" is a initiative towards the advancement of online learning in this generation.
+                   It is developed as a project  by Vishal.Mishra, Kalpesh.Vishwakarma, Aniket.Mane present in  department
+                   of computer engineering of Atharva College of Engineering.This projeect is motivated towards the betterment
+                   of E-Learning and expanding the borders to reach students in every part of the country through the medium of
+                   internet and other technologies.This project deals with faclilities like providing three types of users -
+                   Admin(school or college administrators),Teachers,Students.Task of Admin- maintain and manipulate the records
+                   of students,their profiles,courses(standards),subjects,lessons,attendance,assignments(practice exams).
+                   Task of Teacher - Create and update lessons and provide recorded video lectures,ppts,notes in the various subjects,
+                   take and maintain records of attendances, create and maintain records of assignments and students marks.
+                   Task of Student-access video lectures,ppts,notes of lessons in various subjects,mark and see attendance,
+                   view and take assignments(practice exams) and view marks.
+               </p>
+              </div>
+</section>
+
+{% endblock %}
