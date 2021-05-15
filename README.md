@@ -16,56 +16,95 @@ Here our objectives will be to build an online website which will allow its user
 	The students would be able to access the notes, ppts, lecture videos.etc on a regular basis also they can mark their attendance and view it.The students can also take and submit the assignments which are quiz exams and see their marks.
 
 •	Following are the web pages to be shown depending upon the user type.
+
 	For Admins :
 
 	Login
+
 	Dashboard :
-•	See,Update and edit attendance of students, 
-•	See,Update and edit curriculum or courses available,
-•	See,Update and edit lessons available, 
-•	See,Update and edit comments and replies in lessons
-•	See,Update and edit feedbacks and applications
-•	Create and See assigments and questions in it 
-•	view marks of students
+
+            •	See,Update and edit attendance of students, 
+
+            •	See,Update and edit curriculum or courses available,
+            
+            •	See,Update and edit lessons available, 
+
+            •	See,Update and edit comments and replies in lessons
+
+             •	See,Update and edit feedbacks and applications
+
+             •	Create and See assigments and questions in it 
+
+             •	view marks of students
+             
 	Admin page:
+
 •	add or delete teacher ,
+
 •	add or delete student profile
+
 •	add or delete courses.
 
 
 	For Teachers:
 
 	Login
+
 	Dashboard :
+
 •	See,Update and edit attendance of students, 
+
 •	See,Update and edit curriculum or courses available,
+
 •	See,Update and edit lessons available, 
+
 •	See,Update and edit comments and replies in lessons
+
 •	See,Update and edit feedbacks and applications
+
 •	Create and See assigments and questions in it 
+
 •	view marks of students
+
 	Admin page: (only if teacher has admin rights)
+
 •	add or delete teacher ,
+
 •	add or delete student profile
+
 •	add or delete courses.
+
 
 
 	For Students:
 
 	Login
+
 	Dashboard :
+
 •	See and Mark attendance of students, 
+
 •	See and register curriculum or courses available,
+
 •	view lessons available, 
+
 •	download ppts, lecture recorded videos, lectures notes,
+
 •	See and add comments and replies in lessons,
+
 •	See and add new feedbacks and applications forms,
+
 •	See and submit assigments  questions.
+
 •	view marks of students
 
 
 other pages independent of the user type to be shown are
+
 •	Home
+
 •	Contact us/feedback
+
 •	About us
+
 
