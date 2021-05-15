@@ -19,92 +19,91 @@ Here our objectives will be to build an online website which will allow its user
 
 	For Admins :
 
-	Login
+                                    	Login
 
-	Dashboard :
+                                    	Dashboard :
 
-            •	See,Update and edit attendance of students, 
+                                                            •	See,Update and edit attendance of students, 
 
-            •	See,Update and edit curriculum or courses available,
-            
-            •	See,Update and edit lessons available, 
+                                                            •	See,Update and edit curriculum or courses available,
 
-            •	See,Update and edit comments and replies in lessons
+                                                            •	See,Update and edit lessons available, 
 
-             •	See,Update and edit feedbacks and applications
+                                                            •	See,Update and edit comments and replies in lessons
 
-             •	Create and See assigments and questions in it 
+                                                            •	See,Update and edit feedbacks and applications
 
-             •	view marks of students
-             
-	Admin page:
+                                                            •	Create and See assigments and questions in it 
 
-•	add or delete teacher ,
+                                                            •	view marks of students
 
-•	add or delete student profile
+                                    	Admin page:
 
-•	add or delete courses.
+                                                           •	add or delete teacher ,
 
+                                                           •	add or delete student profile
+
+                                                           •	add or delete courses.
 
 	For Teachers:
 
-	Login
+                                    	Login
 
-	Dashboard :
+                                    	Dashboard :
 
-•	See,Update and edit attendance of students, 
+                                                            •	See,Update and edit attendance of students, 
 
-•	See,Update and edit curriculum or courses available,
+                                                            •	See,Update and edit curriculum or courses available,
 
-•	See,Update and edit lessons available, 
+                                                            •	See,Update and edit lessons available, 
 
-•	See,Update and edit comments and replies in lessons
+                                                            •	See,Update and edit comments and replies in lessons
 
-•	See,Update and edit feedbacks and applications
+                                                            •	See,Update and edit feedbacks and applications
 
-•	Create and See assigments and questions in it 
+                                                            •	Create and See assigments and questions in it 
 
-•	view marks of students
+                                                            •	view marks of students
 
-	Admin page: (only if teacher has admin rights)
+                                    	Admin page: (only if teacher has admin rights)
 
-•	add or delete teacher ,
+                                                                            •	add or delete teacher ,
 
-•	add or delete student profile
+                                                                            •	add or delete student profile,
 
-•	add or delete courses.
+                                                                            •	add or delete courses.
 
 
 
 	For Students:
 
-	Login
+                        	Login
 
-	Dashboard :
+                        	Dashboard :
 
-•	See and Mark attendance of students, 
+                                               •	See and Mark attendance of students, 
 
-•	See and register curriculum or courses available,
+                                               •	See and register curriculum or courses available,
 
-•	view lessons available, 
+                                               •	view lessons available, 
 
-•	download ppts, lecture recorded videos, lectures notes,
+                                               •	download ppts, lecture recorded videos, lectures notes,
 
-•	See and add comments and replies in lessons,
+                                               •	See and add comments and replies in lessons,
 
-•	See and add new feedbacks and applications forms,
+                                               •	See and add new feedbacks and applications forms,
 
-•	See and submit assigments  questions.
+                                               •	See and submit assigments  questions,
 
-•	view marks of students
+                                               •	view marks of students
 
 
-other pages independent of the user type to be shown are
+other pages independent of the user type to be shown are:
 
-•	Home
+                                                            •	Home
 
-•	Contact us/feedback
+                                                            •	Contact us/feedback
 
-•	About us
+                                                            •	About us
 
 
